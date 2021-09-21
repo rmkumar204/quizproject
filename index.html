@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Question Page</title>
+    
+    <style>
+        * {
+            border: 0;
+            margin: 0;
+            /* box-sizing: border-box; */
+        }
+        /* 1 */
+        main{
+            min-height: 100vh;
+            background: linear-gradient(to right top, #cc5eee,#57d0e2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        /* 2 */
+        .glass{
+            width: 60%;
+            background-color: white;
+            min-height: 80vh;
+            background: linear-gradient(to right bottom, 
+            rgba(2, 78, 78, 0.2), 
+            rgba(255,255,255,0.3));
+            border-radius: 2rem;
+            z-index: 8;
+            backdrop-filter: blur(1rem);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-evenly;
+           position: absolute;
+           box-shadow: 3px 3px 20px rgb(233, 231, 231);
+            border-right: cornsilk 1px solid;
+            border-bottom: cornsilk 1px solid;
+        } 
+        
+        h1{
+            color: #fff;
+    font-size: 48px;
+    text-shadow: 2px 2px 2px rgb(0 0 0 / 85%);
+}
+h1{
+    font-family: "Fira Sans Condensed", sans-serif;
+    font-weight: 700;
+}
+        .page{
+            height: 300px;
+            width: 300px;
+            /* background-color: blue; */
+            background:linear-gradient(to right bottom,rgba(163, 195, 236, 0.2),rgba(234, 240, 227, 0.5));
+            display: flex;
+            flex-direction: column;
+            align-items: left;
+            justify-content: space-evenly;
+            border-radius: 20px;
+            padding-left: 150px;
+            box-shadow: 3px 3px 20px rgb(233, 231, 231);
+            border-right: cornsilk 1px solid;
+            border-bottom: cornsilk 1px solid;
+            backdrop-filter: blur(1rem);
+        }
+
+        h3{ 
+       
+            color: rgb(165, 184, 202);
+    
+    text-shadow: 1px 1px 1px rgb(0 0 0 / 85%);
+
+    font-family: "Fira Sans Condensed", sans-serif;
+    font-weight: 0;
+      
+           
+        }
+        h2{
+
+            position: absolute;
+            top: 40px;
+            color: #fff;
+    font-size: 38px;
+    text-shadow: 2px 2px 2px rgb(0 0 0 / 85%);
+
+    font-family: "Fira Sans Condensed", sans-serif;
+    font-weight: 700;
+
+            padding-top: 10px;
+            padding-bottom: 10px;
+        }
+        /* 3 */
+        .circle1{
+            background-color: white;
+            background: linear-gradient(to right bottom, 
+            #d374f0, 
+            rgba(79, 129, 125, 0.1));
+            height: 15rem;
+            width: 15rem;
+            border-radius: 50%;
+            position: absolute;
+            box-shadow: 4px 4px 4px  black;
+            
+        }
+        .circle2{
+            background-color: white;
+            background: linear-gradient(to right bottom, 
+            rgba(138, 214, 238, 0.8), 
+            rgba(79, 129, 125, 0.1));
+            height: 15rem;
+            width: 15rem;
+            border-radius: 50%;
+            position: absolute;
+            box-shadow: 4px 4px 4px  black;
+            
+        }
+        /* 4 */
+        .circle1{
+            top: 5%;
+            right: 10%;
+        }
+        /* 5 */
+        .circle2{
+            bottom: 5%;
+            left: 10%;
+        }
+        button{
+            background-color: unset;
+            color: rgb(7, 2, 58);
+            width: 150px;
+            height: 30px;
+            border: 2px solid rgb(65, 65, 126);
+            border-radius: 5px;
+        
+        }
+      
+        
+        .Reg_diV{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-evenly;
+            padding:10px;
+            margin-top: 10px;
+
+        }
+        input{
+            margin-top: 50px;
+            background-color: unset;
+            border: 2px solid rgb(8, 8, 112);
+            border-radius: 5px;
+            width: 250px;
+            height: 25px;
+            margin:10px ;
+            box-shadow: rgb(69, 69, 121) 3px 3px 5px;
+        }
+        
+    </style>
+</head>
+<body>
+    <main>
+        <section class="glass">
+         
+        <h1 id="title">Quiz is Ready!</h1>
+        <div class="page">
+            <h3>New users </h3>
+            <button type="submit" id="signup">Sign-Up</button>
+            <h3>Existing users</h3>
+            <button type="submit" id="login">Log-In</button>
+        </div> 
+        </section>
+    </main>
+    <div class="circle1"></div>
+    <div class="circle2"></div>
+
+
+    <script type="text/javascript">
+        window.addEventListener('contextmenu', function (e) { 
+// do something here... 
+e.preventDefault(); 
+}, false);
+      </script>
+    
+    <script type="text/javascript">
+
+    //login part starts here*********************************************
+    var pagediv=document.getElementsByClassName("page")[0];    
+        var h1quiz=document.getElementById("title");   
+    document. getElementById("login"). onclick = function () {
+     
+        h1quiz.style.display="none";
+        pagediv.style.display="none"; 
+
+        var s_div=document.createElement("div");
+
+    s_div.setAttribute("class", "Reg_diV"); // Setting Action Attribute on Form
+    console.log(s_div);
+    
+    var sec_var=document.getElementsByClassName("glass")[0];
+    sec_var.appendChild(s_div);
+
+    var heading = document.createElement('h2'); // Heading of Form
+    heading.innerHTML = "Log-In Form ";
+    s_div.appendChild(heading);
+
+
+   
+
+var emaillabel = document.createElement('label'); // Create Label for E-mail Field
+emaillabel.innerHTML = "Your Email : ";
+s_div.appendChild(emaillabel);
+var Email = document.createElement('input'); // Create Input Field for E-mail
+Email.setAttribute("type", "email");
+Email.setAttribute("id", "I1");
+Email.setAttribute("name", "demail");
+s_div.appendChild(Email);
+console.log(Email);
+
+var pswdlabel = document.createElement('label'); // Create Label for Password Field
+pswdlabel.innerHTML = "Password : "; // Set Field Labels
+s_div.appendChild(pswdlabel);
+var Password = document.createElement('input'); // Create Input Field for Password
+Password.setAttribute("type", "password");
+Password.setAttribute("id", "I2");
+Password.setAttribute("name", "psswd");
+s_div.appendChild(Password);
+console.log(Password);
+
+var submitelement = document.createElement('button'); // Append Submit Button
+submitelement.setAttribute("type", "submit");
+submitelement.setAttribute("id", "login_Check");
+submitelement.setAttribute("onclick", "check_user()");
+submitelement.setAttribute("name", "dsubmit");
+submitelement.setAttribute("value", "checking_user");
+submitelement.innerHTML = "Login";
+
+s_div.appendChild(submitelement);
+
+    }
+    function check_user(){
+        var storedEmail = localStorage.getItem('Email');
+    var storedPassword = localStorage.getItem('Password');
+
+    var userEmail = document.getElementById('I1').value;
+    var userPassword = document.getElementById('I2').value;
+
+
+    if(userEmail == storedEmail && userPassword == storedPassword)
+    {
+        alert('You have logged in');
+        window.location="file:///E:/Ramkumar/front%20end%20development/project.html"
+    }
+    else{
+        alert('Give Registered EmailID and Password or Register again');
+        window.location="file:///E:/Ramkumar/front%20end%20development/projectsignup.html"
+    }
+   
+    
+    
+    }
+   
+   
+    
+    //loginpart ends here**********************
+    </script>
+    <script type="text/javascript">
+        var pagediv=document.getElementsByClassName("page")[0];    
+        var h1quiz=document.getElementById("title");   
+        document. getElementById("signup"). onclick = function () {
+        
+         
+     h1quiz.style.display="none";
+    pagediv.style.display="none"; 
+
+    var s_div=document.createElement("div");
+
+    s_div.setAttribute("class", "Reg_diV"); // Setting Action Attribute on Form
+    console.log(s_div);
+    
+    var sec_var=document.getElementsByClassName("glass")[0];
+    sec_var.appendChild(s_div);
+    
+    var heading = document.createElement('h2'); // Heading of Form
+    heading.innerHTML = "Registration Form ";
+    s_div.appendChild(heading);
+
+
+ 
+
+var usernamelabel = document.createElement('label'); // Create Label for Address Field
+usernamelabel.innerHTML = "User Name : "; // Set Field Labels
+s_div.appendChild(usernamelabel);
+var Username = document.createElement('input'); // Create Input Field for Name
+Username.setAttribute("type", "text");
+Username.setAttribute("id", "t1");
+Username.setAttribute("name", "usrname");
+s_div.appendChild(Username);
+
+var emaillabel = document.createElement('label'); // Create Label for E-mail Field
+emaillabel.innerHTML = "Your Email : ";
+s_div.appendChild(emaillabel);
+var email = document.createElement('input'); // Create Input Field for E-mail
+email.setAttribute("type", "email");
+email.setAttribute("id", "t2");
+email.setAttribute("name", "demail");
+s_div.appendChild(email);
+
+var pswdlabel = document.createElement('label'); // Create Label for Password Field
+pswdlabel.innerHTML = "Password : "; // Set Field Labels
+s_div.appendChild(pswdlabel);
+var pwd = document.createElement('input'); // Create Input Field for Password
+pwd.setAttribute("type", "password");
+pwd.setAttribute("id", "t3");
+pwd.setAttribute("name", "psswd");
+s_div.appendChild(pwd);
+
+var conpswdlabel = document.createElement('label'); // Create Label for Password Field
+conpswdlabel.innerHTML = "Confirm Password : "; // Set Field Labels
+s_div.appendChild(conpswdlabel);
+var cpwd = document.createElement('input'); // Create Input Field for Password
+cpwd.setAttribute("type", "password");
+cpwd.setAttribute("id", "t4");
+cpwd.setAttribute("name", "confirm psswd");
+s_div.appendChild(cpwd);
+
+
+
+
+var submitelement = document.createElement('button'); // Append Submit Button
+submitelement.setAttribute("type", "submit");
+submitelement.setAttribute("id", "localstorage");
+submitelement.setAttribute("onclick", "registration()");
+submitelement.setAttribute("name", "dsubmit");
+submitelement.setAttribute("value", "Register");
+submitelement.innerHTML = "Register";
+
+s_div.appendChild(submitelement);
+console.log(submitelement);
+    
+    };
+</script>
+
+<script type="text/javascript">
+
+function registration(){ 
+	
+
+		var Username= document.getElementById("t1").value;
+		var email= document.getElementById("t2").value;
+		
+		var pwd= document.getElementById("t3").value;			
+		var cpwd= document.getElementById("t4").value;
+		
+        //email id expression code
+		var pwd_expression = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-])/;
+		var letters = /^[A-Za-z]+$/;
+		var filter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+
+		if(Username=='')
+		{
+			alert('Please enter your name');
+		}
+		else if(!letters.test(Username))
+		{
+			alert('Name field required only alphabet characters');
+		}
+		else if(email=='')
+		{
+			alert('Please enter your user email id');
+		}
+		else if (!filter.test(email))
+		{
+			alert('Invalid email');
+		}
+		
+		else if(pwd=='')
+		{
+			alert('Please enter Password');
+		}
+		else if(cpwd=='')
+		{
+			alert('Enter Confirm Password');
+		}
+		else if(!pwd_expression.test(pwd))
+		{
+			alert ('Upper case, Lower case, Special character and Numeric letter are required in Password filed');
+		}
+		else if(pwd != cpwd)
+		{
+			alert ('Password not Matched');
+		}
+		else if(document.getElementById("t4").value.length < 6)
+		{
+			alert ('Password minimum length is 6');
+		}
+		else if(document.getElementById("t4").value.length > 12)
+		{
+			alert ('Password max length is 12');
+		}
+		else
+		{		
+            
+            localStorage.setItem('UserName', Username);
+            
+            localStorage.setItem('Email', email);
+            localStorage.setItem('Password', pwd);
+            localStorage.setItem('Confirm_password', cpwd);
+        
+            alert('You registered successfully & go to login');
+         window.location="file:///E:/Ramkumar/front%20end%20development/projectsignup.html"
+			   
+    }
+
+    	   
+        
+		};
+
+    
+    
+    
+</script>
+</body>
+</html>
